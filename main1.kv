@@ -1,0 +1,53 @@
+#:include kv/homescreen.kv
+#:include kv/settingsscreen.kv
+#:include kv/changeavatarsscreen.kv
+
+GridLayout:
+    cols: 1
+    FloatLayout:
+        GridLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#39B3F2")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            # Put two weather icons
+            rows:1
+            pos_hint: {"top": 1, "left": 1}
+            size_hint: 1, .1
+            Image:
+                source: "icons/Day.png"
+            Image:
+                source: "icons/sunrsie.png"
+        FloatLayout:
+            canvas:
+                Color:
+                    rgb: utils.get_color_from_hex("#39B3F2")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            # Put 2 weather icons and avatar icon
+            rows:1
+            pos_hint: {"top": .9, "left": 1}
+            size_hint: 1, .2
+            Image:
+                source: "icons/sunset.png"
+            Image:
+                source: "icons/Boy1.png"
+                id: avatar_image
+            Image:
+                source: "icons/night.png"
+
+
+    ScreenManager:
+        id: screen_manager
+        HomeScreen:
+            name: "home_screen"
+            id: home_screen
+        SettingsScreen:
+            name: "settings_screen"
+            id: settings_screen
+        ChangeAvatarsScreen:
+            name: "change_avatars_screen"
+            id: change_avatars_screen

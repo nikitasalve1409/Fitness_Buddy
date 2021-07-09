@@ -1,0 +1,82 @@
+#: import utils kivy.utils
+
+
+<HomeScreen>:
+    FloatLayout:
+
+        GridLayout:
+            canvas:
+                Color:
+                    rgb : utils.get_color_from_hex("#39B3F2")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            # Put two weather icons
+            rows:1
+            pos_hint: {"top": 1, "left": 1}
+            size_hint: 1, .1
+            Image:
+                source: "icons/Day.png"
+            Image:
+                source: "icons/sunrsie.png"
+
+        GridLayout:
+            canvas:
+                Color:
+                    rgb : utils.get_color_from_hex("#39B3F2")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            # Put 2 weather icons and avatar icon
+            rows:1
+            pos_hint: {"top": .9, "left": 1}
+            size_hint: 1, .2
+            Image:
+                source: "icons/sunset.png"
+            Image:
+                source: "icons/Boy1.png"
+                id: avatar_image
+            Image:
+                source: "icons/night.png"
+        Label:
+            # Streak Label
+            pos_hint: {"top": .7, "left": 1}
+            size_hint: 1, .1
+            text: ""
+            id: streak_label
+        ScrollView:
+            pos_hint: {"top": .6, "left": 1}
+            size_hint: 1, .4
+            GridLayout:
+                # Banner Grid
+                id: banner_grid
+                cols:1
+                spacing: 10, 10
+                size_hint_y : None
+                height: self.minimum_height
+                row_default_height: '100dp'
+                row_force_default: True
+        GridLayout:
+            canvas:
+                Color:
+                    rgb : utils.get_color_from_hex("#ffffff")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            # add 3 Menu buttons here
+            rows: 1
+            pos_hint: {"top": .2, "left": 1}
+            size_hint: 1, .2
+            ImageButton:
+                source:"icons/notepad.png"
+                on_release:
+                    print("Released at handshake button")
+            ImageButton:
+                source:"icons/team.png"
+                on_release:
+                    print("Released at handshake button")
+            ImageButton:
+                source:"icons/Settings.png"
+                on_release:
+                    app.change_screen("change_avatars_screen")
+
